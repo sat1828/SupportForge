@@ -165,20 +165,6 @@ pytest tests/integration/ -v -m integration
 pytest --cov=app --cov-report=html
 ```
 
----
-
-## Limitations (Honest Disclaimer)
-
-1. **Hinglish support is incomplete** — Input normalization detects Hinglish but there's no translation pipeline yet. The LLM receives raw Hinglish text.
-2. **Metrics are not benchmarked** — The "~30% fast-path" and "80% resolution rate" claims are estimates, not tested results. Actual benchmarks are pending.
-3. **Frontend SSE has known issues** — `EventSource` doesn't send cookies. Authentication for streaming needs replacement with `fetch()`-based reader. **[FIXED in latest commit]**
-4. **Grafana is unconfigured** — The service runs but has no pre-built dashboards.
-5. **Rate limiting is not implemented** — `fastapi-limiter` is installed but not wired up yet.
-6. **Only 5 KB documents** — The knowledge base has only refund, GST, COD, shipping, and SLA policies. Real deployment needs 100+ documents.
-7. **LibreTranslate integration is incomplete** — The Docker service runs but the translation tool isn't called in main flow.
-
----
-
 ## Project Structure
 
 ```
