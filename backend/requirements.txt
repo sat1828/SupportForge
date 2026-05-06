@@ -1,0 +1,56 @@
+# SupportForge Backend -- pip requirements
+# Install with: pip install -r requirements.txt
+# Python 3.11 required (NOT 3.12 or 3.13 -- use: py -3.11 -m pip install ...)
+
+# -- Web Framework --------------------------------------------
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+python-multipart==0.0.12
+
+# -- Database -------------------------------------------------
+sqlalchemy[asyncio]==2.0.35   # MUST be <2.0.36 (langchain-community constraint)
+asyncpg==0.30.0
+psycopg[binary]==3.2.3
+alembic==1.14.0
+pgvector==0.3.6
+
+# -- Cache / Queue --------------------------------------------
+redis[hiredis]==5.2.0
+arq==0.26.1
+fastapi-limiter==0.1.6
+
+# ── AI / LLM ──────────────────────────────────────────────────
+langchain==0.3.7
+langchain-groq==0.2.1
+langchain-community==0.3.7
+langgraph==0.2.56
+langgraph-checkpoint-postgres==2.0.9
+langsmith==0.1.147
+sentence-transformers==3.3.1
+rank-bm25==0.2.2
+
+# ── Validation / Config ───────────────────────────────────────
+pydantic==2.10.0
+pydantic-settings==2.6.0
+
+# ── Security ──────────────────────────────────────────────────
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+
+# ── HTTP / Async ──────────────────────────────────────────────
+httpx==0.28.0
+aiohttp==3.11.0
+
+# ── Observability ─────────────────────────────────────────────
+prometheus-client==0.21.0
+structlog==24.4.0
+
+# ── Scheduling ────────────────────────────────────────────────
+apscheduler==3.10.4
+
+# ── Utilities ─────────────────────────────────────────────────
+tenacity==9.0.0
+tiktoken==0.8.0
+nltk==3.9.1
+python-dotenv==1.0.1
+jinja2==3.1.4

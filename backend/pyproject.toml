@@ -1,0 +1,111 @@
+[tool.poetry]
+name = "supportforge-backend"
+version = "1.0.0"
+description = "SupportForge AI Agent Backend — Production Grade"
+authors = ["SupportForge Team"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+# ── Web Framework ─────────────────────────────────────────────
+fastapi = "^0.115.0"
+uvicorn = {extras = ["standard"], version = "^0.32.0"}
+python-multipart = "^0.0.12"
+
+# ── Database ──────────────────────────────────────────────────
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.36"}
+asyncpg = "^0.30.0"
+psycopg = {extras = ["binary"], version = "^3.2.0"}  # Required by langgraph-checkpoint-postgres
+alembic = "^1.14.0"
+pgvector = "^0.3.6"
+
+# ── Cache / Queue ─────────────────────────────────────────────
+redis = {extras = ["hiredis"], version = "^5.2.0"}
+arq = "^0.26.1"
+fastapi-limiter = "^0.1.6"
+
+# ── AI / LLM ──────────────────────────────────────────────────
+langchain = "^0.3.7"
+langchain-groq = "^0.2.1"
+langchain-community = "^0.3.7"
+langgraph = "^0.2.56"
+langgraph-checkpoint-postgres = "^2.0.9"
+langsmith = "^0.1.147"
+sentence-transformers = "^3.3.1"
+rank-bm25 = "^0.2.2"
+
+# ── Validation / Config ───────────────────────────────────────
+pydantic = "^2.10.0"
+pydantic-settings = "^2.6.0"
+
+# ── Security ──────────────────────────────────────────────────
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+
+# ── HTTP / Async ──────────────────────────────────────────────
+httpx = "^0.28.0"
+aiohttp = "^3.11.0"
+
+# ── Observability ─────────────────────────────────────────────
+prometheus-client = "^0.21.0"
+structlog = "^24.4.0"
+
+# ── Scheduling ────────────────────────────────────────────────
+apscheduler = "^3.10.4"
+
+# ── Utilities ─────────────────────────────────────────────────
+tenacity = "^9.0.0"
+tiktoken = "^0.8.0"
+nltk = "^3.9.1"
+python-dotenv = "^1.0.1"
+jinja2 = "^3.1.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-asyncio = "^0.24.0"
+pytest-cov = "^6.0.0"
+httpx = "^0.28.0"
+anyio = {extras = ["trio"], version = "^4.7.0"}
+factory-boy = "^3.3.1"
+
+[tool.poetry.group.lint.dependencies]
+ruff = "^0.8.0"
+mypy = "^1.13.0"
+types-passlib = "*"
+types-python-jose = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4", "SIM"]
+ignore = [
+    "E501",   # line too long
+    "N806",   # variable in function should be lowercase
+    "N803",   # argument name should be lowercase
+    "B008",   # do not perform function call in defaults -- FastAPI Depends() is intentional
+    "F821",   # undefined name -- ruff false positive on SQLAlchemy forward-ref strings
+    "N814",   # camelcase imported as constant -- internal class alias pattern
+]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+markers = [
+    "robustness: 130-case robustness test suite",
+    "integration: integration tests requiring DB + Redis",
+    "unit: pure unit tests with no external dependencies",
+]

@@ -1,0 +1,40 @@
+COD Policy — SupportForge Knowledge Base
+=========================================
+
+CASH ON DELIVERY AVAILABILITY
+- Available for orders up to ₹10,000
+- Not available for: digital goods, pre-orders, international shipments
+- Available PIN codes: 18,000+ cities across India
+- Minimum order value for COD: ₹199
+
+COD CHARGES
+- Orders < ₹500: ₹40 COD handling fee
+- Orders ₹500–₹2,000: ₹30 COD handling fee
+- Orders > ₹2,000: Free COD
+
+PAYMENT AT DOORSTEP
+- Pay exact amount to delivery agent (change availability not guaranteed)
+- Accept only Indian currency
+- UPI payment accepted via QR code on invoice (no COD fee applies)
+
+COD REMITTANCE TO SELLER
+- Remittance processed within 3-5 business days after delivery confirmation
+- If delivery delayed beyond 7 days, contact support with order ID
+- NDR (Non-Delivery Report) cases: resolved within 24-48 hours
+
+COD FAILURE POLICIES
+- 1st failure: Re-attempt next business day
+- 2nd failure: Customer contacted for rescheduling
+- 3rd failure in 30 days: COD suspended for 90 days
+- More than 3 failures in 30 days: COD eligibility permanently reviewed
+
+NDR (NON-DELIVERY REPORT) HANDLING
+- Raised when delivery agent cannot deliver
+- Reasons: Customer unavailable, wrong address, refused delivery
+- Resolution: Customer receives SMS/call within 2 hours
+- If customer claims delivery occurred but NDR raised: escalated to supervisor
+
+REFUND FOR COD ORDERS
+- Returned COD orders: Refund via NEFT to registered bank account
+- Bank account must be verified (takes 24h)
+- Processing: 7-10 business days after QC approval

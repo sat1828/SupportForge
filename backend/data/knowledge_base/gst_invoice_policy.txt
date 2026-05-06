@@ -1,0 +1,41 @@
+GST Invoice Policy — SupportForge Knowledge Base
+================================================
+
+OVERVIEW
+Our platform issues GST-compliant invoices for all taxable transactions. This document
+outlines invoice generation, GSTIN validation, and refund eligibility rules.
+
+GSTIN VALIDATION
+- Format: 2-digit state code + 10-digit PAN + 1-digit entity number + 1-digit Z + 1 checksum
+- Example valid GSTIN: 29ABCDE1234F1Z5
+- Invalid GSTINs will result in invoice rejection and require re-submission
+- Customers must provide GSTIN at checkout for B2B transactions
+
+GST SLABS (FY 2024-25)
+- 0%: Essential goods (rice, wheat, books, contraceptives)
+- 5%: Packaged food, footwear < ₹1000, apparel < ₹1000
+- 12%: Processed food, mobiles, computers
+- 18%: Most electronics, software, restaurant services
+- 28%: Luxury goods, automobiles, tobacco
+
+INVOICE GENERATION
+- Invoices generated within 24 hours of order confirmation
+- Available in customer portal under "My Orders > Invoice"
+- Format: PDF with QR code for verification
+- Validity: Permanent (no expiry)
+
+REFUND ELIGIBILITY
+- Refund claims accepted up to 2 years from invoice date
+- Claims beyond 2 years are automatically rejected (system rule)
+- Refund amount cannot exceed original invoice amount including GST
+- Partial refunds allowed for partial returns
+
+INVOICE DISPUTES
+- Raise dispute within 30 days of invoice generation
+- Corrections allowed: customer name, GSTIN, shipping address
+- Amount corrections require cancellation and re-issue (takes 3-5 business days)
+
+DOWNLOAD INSTRUCTIONS
+1. Login to portal → My Orders → Select Order → Download Invoice
+2. If invoice unavailable after 24h, contact support with order ID
+3. Bulk download available for business accounts (up to 100 invoices at once)

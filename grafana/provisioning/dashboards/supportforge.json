@@ -1,0 +1,72 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "title": "SupportForge Overview",
+      "type": "row",
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 }
+    },
+    {
+      "title": "Resolution Rate",
+      "type": "stat",
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sf_resolution_rate", "legendFormat": "Resolution Rate" }],
+      "gridPos": { "h": 4, "w": 6, "x": 0, "y": 1 }
+    },
+    {
+      "title": "Escalation Rate",
+      "type": "stat",
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sf_escalation_rate", "legendFormat": "Escalation Rate" }],
+      "gridPos": { "h": 4, "w": 6, "x": 6, "y": 1 }
+    },
+    {
+      "title": "Fast-Path Resolutions",
+      "type": "stat",
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sum(sf_fast_path_resolutions_total)", "legendFormat": "Fast-Path Count" }],
+      "gridPos": { "h": 4, "w": 6, "x": 12, "y": 1 }
+    },
+    {
+      "title": "Active Jobs",
+      "type": "stat",
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sf_worker_active_jobs", "legendFormat": "Active Jobs" }],
+      "gridPos": { "h": 4, "w": 6, "x": 18, "y": 1 }
+    },
+    {
+      "title": "Agent Latency (ms)",
+      "type": "heatmap",
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sf_agent_latency_ms_bucket", "legendFormat": "{{le}}" }],
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 5 }
+    },
+    {
+      "title": "Cost per Ticket",
+      "type": "histogram",
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sf_cost_tokens_per_ticket_bucket", "legendFormat": "{{le}}" }],
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 5 }
+    },
+    {
+      "title": "Tool Calls by Name",
+      "type": "bargauge",
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sum by (tool_name)(sf_tool_calls_total)", "legendFormat": "{{tool_name}}" }],
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 13 }
+    }
+  ],
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": ["supportforge"],
+  "templating": { "list": [] },
+  "time": { "from": "now-1h", "to": "now" },
+  "title": "SupportForge AI",
+  "uid": "supportforge-overview",
+  "version": 1
+}

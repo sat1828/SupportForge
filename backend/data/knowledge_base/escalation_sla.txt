@@ -1,0 +1,49 @@
+Escalation SLA Policy — SupportForge Knowledge Base
+====================================================
+
+PRIORITY LEVELS AND SLA TARGETS
+
+P1 — CRITICAL (Response: 15 min | Resolution: 1 hour)
+Triggers:
+- Financial loss > ₹50,000
+- Data breach or security incident
+- Payment gateway complete outage
+- Legal/regulatory threat received
+Action: Immediate escalation to senior manager + legal team
+
+P2 — HIGH (Response: 1 hour | Resolution: 4 hours)
+Triggers:
+- Financial impact ₹10,000–₹50,000
+- Fraud detected (GST mismatch, refund fraud)
+- Multiple customers affected by same issue
+- SLA breach imminent
+Action: Escalate to team lead, block further automated processing
+
+P3 — MEDIUM (Response: 4 hours | Resolution: 24 hours)
+Triggers:
+- Standard refund request > ₹5,000
+- COD remittance pending > 7 days
+- Warranty claim disputes
+- Account deactivation appeals
+Action: Senior agent review required
+
+P4 — LOW (Response: 24 hours | Resolution: 72 hours)
+Triggers:
+- General information queries
+- Minor product feedback
+- Subscription changes
+Action: Standard agent handling
+
+SLA BREACH CONSEQUENCES
+- P1 breach: Automatic escalation to VP Customer Experience
+- P2 breach: Escalation to department head + compensation trigger
+- P3/P4 breach: Manager review + customer apology coupon
+
+ESCALATION TRIGGERS IN AI SYSTEM
+The AI will automatically escalate when:
+1. Confidence score < 65% after 3 KB searches
+2. Fraud signals detected (any severity)
+3. Refund amount > ₹5,000
+4. Customer uses legal language (FIR, consumer forum, court)
+5. Execution budget exceeded (system protection)
+6. All LLM providers unavailable

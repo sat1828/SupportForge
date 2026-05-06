@@ -1,0 +1,58 @@
+version: "3.9"
+
+# ─────────────────────────────────────────────────────────────
+# SupportForge — Isolated Integration Test Stack
+# Uses ephemeral (tmpfs) storage — destroyed after test run
+# ─────────────────────────────────────────────────────────────
+
+services:
+  postgres-test:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_pass
+      POSTGRES_DB: supportforge_test
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test_user"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis-test:
+    image: redis:7-alpine
+    tmpfs:
+      - /data
+
+  backend-test:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: test
+    environment:
+      DATABASE_URL: postgresql+asyncpg://test_user:test_pass@postgres-test:5432/supportforge_test
+      REDIS_URL: redis://redis-test:6379/0
+      GROQ_API_KEY: test_key_mock
+      SECRET_KEY: test_secret_key_32_chars_minimum
+      ENVIRONMENT: test
+      LIBRETRANSLATE_URL: http://localhost:5000
+      MAX_STEPS_PER_TICKET: 10
+      MAX_LATENCY_SECONDS: 10
+      MAX_KB_RETRIES: 3
+      MAX_LLM_CALLS_PER_TICKET: 5
+      MAX_TOKENS_PER_TICKET: 5000
+    depends_on:
+      postgres-test:
+        condition: service_healthy
+      redis-test:
+        condition: service_started
+    command: >
+      sh -c "
+        python -m alembic upgrade head &&
+        pytest tests/ -v --cov=app --cov-report=term-missing
+             --cov-report=xml:/reports/coverage.xml
+             -p no:warnings
+      "
+    volumes:
+      - ./backend/reports:/reports
